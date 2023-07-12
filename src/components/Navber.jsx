@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navber() {
+  const items = useSelector((state) => state.card);
+
   return (
     <div
+      className="navber"
       style={{
         display: "flex",
         alignItems: "center",
@@ -17,7 +21,7 @@ function Navber() {
         <Link className="navLink" to="/card">
           Card
         </Link>
-        <span className="cartCount">Cart items: 0</span>
+        <span className="cartCount">Cart items: {items.length}</span>
       </div>
     </div>
   );
